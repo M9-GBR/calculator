@@ -1,0 +1,108 @@
+[
+    {
+        "key": "←",
+        "class": "top-keys bolden",
+        "func": "this.delChars()",
+        "keyboardId": "Backspace"
+    },
+    {
+        "key": "CE",
+        "class": "top-keys",
+        "func": "this.clearAll()",
+        "keyboardId": "Escape"
+    },
+    {
+        "key": "7",
+        "func": "this.inputNum(7)",
+        "keyboardId": "7"
+    },
+    {
+        "key": "8",
+        "func": "this.inputNum(8)",
+        "keyboardId": "8"
+    },
+    {
+        "key": "9",
+        "func": "this.inputNum(9)",
+        "keyboardId": "9"
+    },
+    {
+        "key": "±",
+        "func": "this.negate()"
+    },
+    {
+        "key": "√",
+        "class": "bolden",
+        "func": "this.root()"
+    },
+    {
+        "key": "4",
+        "func": "this.inputNum(4)",
+        "keyboardId": "4"
+    },
+    {
+        "key": "5",
+        "func": "this.inputNum(5)",
+        "keyboardId": "5"
+    },
+    {
+        "key": "6",
+        "func": "this.inputNum(6)",
+        "keyboardId": "6"
+    },
+    {
+        "key": "x",
+        "func": "this.addOperand(\"*\")",
+        "keyboardId": "*"
+    },
+    {
+        "key": "÷",
+        "func": "this.addOperand(\"/\")",
+        "keyboardId": "/"
+    },
+    {
+        "key": "1",
+        "func": "this.inputNum(1)",
+        "keyboardId": "1"
+    },
+    {
+        "key": "2",
+        "func": "this.inputNum(2)",
+        "keyboardId": "2"
+    },
+    {
+        "key": "3",
+        "func": "this.inputNum(3)",
+        "keyboardId": "3"
+    },
+    {
+        "key": "+",
+        "func": "this.addOperand(\"+\")",
+        "keyboardId": "+"
+    },
+    {
+        "key": "=",
+        "id": "equal-btn",
+        "func": "this.evaluateCalc()",
+        "keyboardId": "="
+    },
+    {
+        "key": "0",
+        "func": "this.inputNum(0)",
+        "keyboardId": "0"
+    },
+    {
+        "key": "00",
+        "func": "this.inputNum('00')"
+    },
+    {
+        "key": ".",
+        "func": "this.inputDecimal()",
+        "keyboardId": "."
+    },
+    {
+        "key": "-",
+        "func": "this.addOperand(\"-\")",
+        "keyboardId": "-"
+    }
+]
