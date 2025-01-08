@@ -1,6 +1,6 @@
 [
     {
-        "key": "←",
+        "key": "→",
         "class": "top-keys bolden",
         "func": "this.delChars()",
         "keyboardId": "Backspace"

@@ -40,10 +40,6 @@
     background-color: rgb(0, 120, 0);
 }
 
-.blink {
-    animation: blink 0.1s;
-}
-
 #btns-wrap {
     display: grid;
     justify-content: center;
@@ -54,9 +50,8 @@
 }
 
 .calc-button {
-    font-size: 20px;
-    font-family: arial;
-    font-weight: 50;
+    font-size: 25px;
+    font-family: calibri;
 }
 
 .bolden {
@@ -64,7 +59,6 @@
 }
 
 .top-keys {
-    height: 25px;
     margin: auto 0;
 }
 
@@ -75,6 +69,10 @@
 #equal-btn {
     grid-row: 4 / span 2;
     grid-column: 5;
+}
+
+.blink {
+    animation: blink 0.1s;
 }
 
 @keyframes blink {
