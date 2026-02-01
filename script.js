@@ -32,7 +32,7 @@ const calculator = {
     value3: null,
     operation: null,
     start() {
-        this.memory = localStorage.getItem("mem")
+        this.memory = localStorage.getItem("calc-mem")
         this.updateDisplay()
     },
     clearDisplay() {
@@ -288,7 +288,7 @@ const calculator = {
     memorySave() {
         if (errorDisplay.classList.contains("hide")) {
             this.memory = this.stateValue
-            localStorage.setItem("mem", this.memory)
+            localStorage.setItem("calc-mem", this.memory)
             this.updateMemoryDiplay()
         }
     },
@@ -296,19 +296,19 @@ const calculator = {
         if (this.memory) {
             let val = +this.memory
             this.memory = this.formatVal(val - 1)
-            localStorage.setItem("mem", this.memory)
+            localStorage.setItem("calc-mem", this.memory)
         }
     },
     memoryAdd() {
         if (this.memory) {
             let val = +this.memory
             this.memory = this.formatVal(val + 1)
-            localStorage.setItem("mem", this.memory)
+            localStorage.setItem("calc-mem", this.memory)
         }
     },
     memoryClear() {
         this.memory = null
-        localStorage.removeItem("mem")
+        localStorage.removeItem("calc-mem")
         this.updateMemoryDiplay()
     },
     memoryRecall() {
@@ -423,8 +423,8 @@ calculator.start()
 let root = document.querySelector("html")
 themeBtn.addEventListener("click", () => {
     root.classList.toggle("dark")
-    localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light")
+    localStorage.setItem("calc-theme", root.classList.contains("dark") ? "dark" : "light")
 })
 
-if (localStorage.getItem("theme") == "light" || !localStorage.getItem("theme")) root.classList.remove("dark")
+if (localStorage.getItem("calc-theme") == "light" || !localStorage.getItem("calc-theme")) root.classList.remove("dark")
 else root.classList.add("dark")
