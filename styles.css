@@ -29,6 +29,8 @@ body {
     background-color: light-dark(white, #222);
     transition-property: background-color;
     transition-duration: var(--bg-duration);
+
+    overflow: hidden;
 }
 
 #header {
@@ -47,14 +49,26 @@ body {
     cursor: pointer;
     width: 2rem;
     aspect-ratio: 1;
+    border-radius: 100%;
+    padding: .2rem;
+    box-sizing: content-box;
 }
 
 #theme-btn svg {
     fill: light-dark(black, white);
+    transition: .3s;
+    width: 100%;
+    height: 100%;
 }
 
-#theme-btn svg:hover {
-    fill: #999;
+@starting-style {
+    #theme-btn svg {
+        fill: light-dark(white, black);
+    }
+}
+
+#theme-btn:hover {
+    background-color: light-dark(yellow, grey);
 }
 
 .dark #theme-btn #light-svg {
@@ -73,8 +87,6 @@ body {
     display: flex;
     flex: 1 1 auto;
     align-items: center;
-    overflow: auto;
-    max-width: 100vw;
 }
 
 #calculator {
@@ -83,7 +95,6 @@ body {
     padding: .5rem;
     border-radius: .5rem;
     box-shadow: 0 0 10px black;
-    margin: .5rem;
     transform-origin: 50% 50%;
     transition-property: background-color;
     transition-duration: var(--bg-duration);

@@ -428,3 +428,21 @@ themeBtn.addEventListener("click", () => {
 
 if (localStorage.getItem("calc-theme") == "light" || !localStorage.getItem("calc-theme")) root.classList.remove("dark")
 else root.classList.add("dark")
+
+//resizing calc
+let resizeTimer, calc = get("#calculator")
+
+function resize() {
+    let { width, padding } = getComputedStyle(calc),
+        calcW = parseFloat(width) + parseFloat(padding) * 2
+
+    calc.style.scale = calcW > innerWidth ? (innerWidth / calcW) - .05 : 1
+}
+
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer)
+
+    resizeTimer = setTimeout(resize, 500)
+})
+
+resize()
