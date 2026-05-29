@@ -29,8 +29,6 @@ body {
     background-color: light-dark(white, #222);
     transition-property: background-color;
     transition-duration: var(--bg-duration);
-
-    overflow: hidden;
 }
 
 #header {
@@ -87,6 +85,8 @@ body {
     display: flex;
     flex: 1 1 auto;
     align-items: center;
+    width: 100%;
+    overflow: auto;
 }
 
 #calculator {
@@ -95,9 +95,14 @@ body {
     padding: .5rem;
     border-radius: .5rem;
     box-shadow: 0 0 10px black;
+    margin: auto;
     transform-origin: 50% 50%;
     transition-property: background-color;
     transition-duration: var(--bg-duration);
+
+    width: 100%;
+    max-width: fit-content;
+    min-width: max-content;
 }
 
 #calc-head {
@@ -123,13 +128,10 @@ body {
     background-color: #0c0;
     padding: .5rem;
     border-radius: .5rem;
-    width: min-content;
+    min-width: max-content;
     margin: .5rem auto;
     color: black;
-}
-
-#main-display {
-    position: relative;
+    min-height: max-content;
 }
 
 .hide {
@@ -160,9 +162,11 @@ body {
 }
 
 #main-display {
-    top: 0;
+    position: relative;
     height: 100%;
     width: 100%;
+    height: 100%;
+    
     font-family: digital;
     display: flex;
 }
@@ -204,7 +208,6 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    /* text-align: center; */
 }
 
 .minus {

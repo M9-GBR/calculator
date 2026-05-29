@@ -1,3 +1,7 @@
+import LocalSaver from "./local-saver/index.js"
+
+let saver = new LocalSaver("calc")
+
 function get(string) {
     return document.querySelector(`${string}`)
 }
@@ -32,7 +36,7 @@ const calculator = {
     value3: null,
     operation: null,
     start() {
-        this.memory = localStorage.getItem("calc-mem")
+        this.memory = saver.getItem("mem")
         this.updateDisplay()
     },
     clearDisplay() {
@@ -288,7 +292,7 @@ const calculator = {
     memorySave() {
         if (errorDisplay.classList.contains("hide")) {
             this.memory = this.stateValue
-            localStorage.setItem("calc-mem", this.memory)
+            saver.setItem("mem", this.memory)
             this.updateMemoryDiplay()
         }
     },
@@ -296,19 +300,19 @@ const calculator = {
         if (this.memory) {
             let val = +this.memory
             this.memory = this.formatVal(val - 1)
-            localStorage.setItem("calc-mem", this.memory)
+            saver.setItem("mem", this.memory)
         }
     },
     memoryAdd() {
         if (this.memory) {
             let val = +this.memory
             this.memory = this.formatVal(val + 1)
-            localStorage.setItem("calc-mem", this.memory)
+            saver.setItem("mem", this.memory)
         }
     },
     memoryClear() {
         this.memory = null
-        localStorage.removeItem("calc-mem")
+        saver.removeItem("mem", this.memory)
         this.updateMemoryDiplay()
     },
     memoryRecall() {
@@ -387,16 +391,16 @@ document.addEventListener("keydown", ev => {
 
     let combination = keysList.join("-")
 
+    // ev.preventDefault()
+
     if (keysList.length > 1 && functions[combination]) {
         let btn = document.querySelector(`button[data-key="${combination}"]`)
         if (btn) btn.classList.add("pressed")
         functions[combination]()
-        ev.preventDefault()
     } else if (functions[ev.key]) {
         let btn = document.querySelector(`button[data-key="${ev.key}"]`)
         if (btn) btn.classList.add("pressed")
         functions[ev.key]()
-        ev.preventDefault()
     }
 })
 
@@ -423,10 +427,10 @@ calculator.start()
 let root = document.querySelector("html")
 themeBtn.addEventListener("click", () => {
     root.classList.toggle("dark")
-    localStorage.setItem("calc-theme", root.classList.contains("dark") ? "dark" : "light")
+    saver.setItem("theme", root.classList.contains("dark") ? "dark" : "light")
 })
 
-if (localStorage.getItem("calc-theme") == "light" || !localStorage.getItem("calc-theme")) root.classList.remove("dark")
+if (saver.getItem("theme") == "light" || !saver.getItem("theme")) root.classList.remove("dark")
 else root.classList.add("dark")
 
 //resizing calc
@@ -442,7 +446,9 @@ function resize() {
 window.addEventListener("resize", () => {
     clearTimeout(resizeTimer)
 
-    resizeTimer = setTimeout(resize, 500)
+    // resizeTimer = setTimeout(resize, 500)
 })
 
-resize()
+window.calc = calculator
+
+// resize()
